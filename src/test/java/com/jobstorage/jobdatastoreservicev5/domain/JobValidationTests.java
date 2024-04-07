@@ -91,7 +91,6 @@ public class JobValidationTests {
     void whenSkill2IsNotDefinedThenValidationFails(){
         var job = new Job("1","Senior Developer","Java Developer","Oracle","Java","");
         Set<ConstraintViolation<Job>> violations = validator.validate(job);
-        //System.out.println("Num of violations "+violations.size());
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage())
                 .isEqualTo("Skill must exist.");
