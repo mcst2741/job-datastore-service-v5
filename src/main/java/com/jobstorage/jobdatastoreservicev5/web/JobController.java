@@ -3,6 +3,7 @@ package com.jobstorage.jobdatastoreservicev5.web;
 import com.jobstorage.jobdatastoreservicev5.domain.Job;
 import com.jobstorage.jobdatastoreservicev5.domain.JobService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("jobs")
 public class JobController {
+    
+    @Value("${server.port}")
+    private String serverPort;
+
+
     private final JobService jobService;
 
     public JobController(JobService jobService){
